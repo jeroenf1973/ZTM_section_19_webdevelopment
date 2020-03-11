@@ -20,7 +20,7 @@ def hello_world():
 
 @app.route('/users/<username>/<int:post_id>')
 def username(username=None, post_id=None):
-    return render_template('about.html', name=username, post_id=post_id)
+    return render_template('about.html', name_placeholder=username, post_id=post_id)
 
 @app.route('/about')
 def about():
