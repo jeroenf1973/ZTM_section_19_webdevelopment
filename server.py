@@ -21,10 +21,13 @@ def htmlpage(page_name=None):
 def submit_form():
     #return 'form submitted!'
     if request.method == "POST":
-        data = request.form.to_dict()
-        #print(data)
-        write_to_csv(data)
-        return render_template('thankyou.html')
+        try:
+            data = request.form.to_dict()
+            #print(data)
+            write_to_csv(data)
+            return render_template('thankyou.html')
+        except:
+            return 'Sorry, not saved to the database.'
     else:
         return "oops....thats not good!"
 
